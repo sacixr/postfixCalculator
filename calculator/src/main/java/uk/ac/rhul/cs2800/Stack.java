@@ -2,6 +2,7 @@ package uk.ac.rhul.cs2800;
 
 import java.util.ArrayList;
 import java.util.EmptyStackException;
+import java.util.function.BooleanSupplier;
 
 /**
  * Manipulates an ArrayList to create a stack of Entry objects using the Last-In First-Out method.
@@ -15,8 +16,17 @@ import java.util.EmptyStackException;
 public class Stack {
   // size - Sets the initial size of the stack to 0.
   // ArrayList<Entry> - Instantiates a new ArrayList value that takes Entries for items.
-  private int size = 0;
-  private ArrayList<Entry> value = new ArrayList<Entry>();
+  private int size;
+  private ArrayList<Entry> value;
+
+  /**
+   * Constructs an empty Stack object. Sets the initial size to 0.
+   *
+   */
+  public Stack() {
+    size = 0;
+    value = new ArrayList<Entry>();
+  }
 
   /**
    * Returns the number of elements in the stack.
@@ -61,12 +71,11 @@ public class Stack {
     checkSize();
     return value.get(size - 1);
   }
-  
+
   // Checks the size of the ArrayList. If 0 throws an EmptyStackException.
   private void checkSize() {
     if (size == 0) {
       throw new EmptyStackException();
     }
   }
-
 }
