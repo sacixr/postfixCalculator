@@ -1,7 +1,5 @@
 package uk.ac.rhul.cs2800;
 
-import java.util.EmptyStackException;
-
 /**
  * Creates a new object StrStack that extends the Stack class. Contains a push method that takes a
  * String as a parameter rather than an Entry object.
@@ -11,7 +9,7 @@ import java.util.EmptyStackException;
  */
 public class StrStack {
   private Stack strStack;
-  
+
   /**
    * Constructs an empty Stack object.
    */
@@ -24,6 +22,8 @@ public class StrStack {
    *
    * @param str the string element to be pushed onto the top of the stack
    */
+  // Creates a new entry with the same variable 'str' in it and pushes utilising Stack push()
+  // method.
   public void push(String str) {
     Entry entry = new Entry(str);
     strStack.push(entry);
@@ -34,10 +34,9 @@ public class StrStack {
    *
    * @return string object on the top of the stack
    */
+  // Utilises pop() method from Stack class to pop the top entry. Returns string representation of
+  // the object.
   public String pop() {
-    if (strStack.size() == 0) {
-      throw new EmptyStackException();
-    }
     return strStack.pop().toString();
   }
 
@@ -46,6 +45,7 @@ public class StrStack {
    *
    * @return the boolean result relative to size of stack
    */
+  // Returns true if numStack is empty. Checks size of stack to confirm this.
   public boolean isEmpty() {
     if (strStack.size() == 0) {
       return true;
