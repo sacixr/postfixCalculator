@@ -1,6 +1,19 @@
 package uk.ac.rhul.cs2800;
 
-public class RevPolishCalc {
+/**
+ * Evaluates a Reverse Polish String expression. Implements the Calculator interface and contains
+ * the necessary evaluates method.
+ *
+ * @author ZKAC176
+ *
+ */
+public class RevPolishCalc implements Calculator {
+  /**
+   * Evaluates a Reverse Polish String expression and returns the result of the calculation.
+   *
+   * @return the result of the arithmetic operation determined from the Reverse Polish String
+   *         expression
+   */
   public float evaluate(String what) {
     // checks if string is empty, if so returns 0
     if (what == "") {
