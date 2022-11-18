@@ -48,4 +48,10 @@ class TestRevPolish {
     assertEquals(rp.evaluate("2 2 *"), 4.0, "2 * 2 should evaluate to 4.0");
     assertEquals(rp.evaluate("10 5 /"), 2.0, "10 / 5 should evaluate to 2");
   }
+  
+  @Test
+  // Test 6
+  void testComplex() {
+    assertEquals(rp.evaluate("2 2 + 5 *"), 20.0, "(2 + 2) + 5 should evaluate to 9.0");
+  }
 }
