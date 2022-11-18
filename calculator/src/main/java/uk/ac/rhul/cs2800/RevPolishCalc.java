@@ -8,8 +8,11 @@ public class RevPolishCalc {
       String[] splitStr = what.split(" ");
       if (splitStr.length == 1) {
         return (float) Float.parseFloat(splitStr[0]);
+      } else {
+        int curr = 0;
+        float result = Float.parseFloat(splitStr[curr]) + Float.parseFloat(splitStr[curr + 1]);
+        return result;
       }
-      return (float) 5.0;
     }
   }
 
