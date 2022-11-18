@@ -10,7 +10,23 @@ public class RevPolishCalc {
         return (float) Float.parseFloat(splitStr[0]);
       } else {
         int curr = 0;
-        float result = Float.parseFloat(splitStr[curr]) + Float.parseFloat(splitStr[curr + 1]);
+        float result = 0;
+        switch (splitStr[2]) {
+          case "+":
+            result = Float.parseFloat(splitStr[curr]) + Float.parseFloat(splitStr[curr + 1]);
+            break;
+          case "-":
+            result = Float.parseFloat(splitStr[curr]) - Float.parseFloat(splitStr[curr + 1]);
+            break;
+          case "*":
+            result = Float.parseFloat(splitStr[curr]) * Float.parseFloat(splitStr[curr + 1]);
+            break;
+          case "/":
+            result = Float.parseFloat(splitStr[curr]) / Float.parseFloat(splitStr[curr + 1]);
+            break;
+          default:
+            return result;
+        }
         return result;
       }
     }
