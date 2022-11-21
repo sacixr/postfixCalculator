@@ -2,7 +2,6 @@ package uk.ac.rhul.cs2800;
 
 import java.util.ArrayList;
 import java.util.EmptyStackException;
-import java.util.function.BooleanSupplier;
 
 /**
  * Manipulates an ArrayList to create a stack of Entry objects using the Last-In First-Out method.

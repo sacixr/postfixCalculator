@@ -53,4 +53,13 @@ public class NumStack {
     }
   }
 
+  /**
+   * Retrieves the size of the stack.
+   *
+   * @return the size of the stack
+   */
+  public int getSize() {
+    return numStack.size();
+  }
+
 }
