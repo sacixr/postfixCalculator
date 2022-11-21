@@ -54,4 +54,17 @@ class TestRevPolish {
   void testComplex() {
     assertEquals(rp.evaluate("2 2 + 5 *"), 20.0, "(2 + 2) + 5 should evaluate to 20.0");
   }
+
+  @Test
+  // Test 7
+  void testDoubleDigits() {
+    assertEquals(rp.evaluate("22 45 * 10 +"), 1000.0, "(22 * 45 + 10 should evaluate to 1000.0");
+  }
+
+  @Test
+  // Test 8
+  void testDecimals() {
+    assertEquals(rp.evaluate("22.8 4.7 * 9.1 +"), 116.26, 0.1,
+        "22.8 * 4.7 + 9.1 should evaluate to 116.26");
+  }
 }
