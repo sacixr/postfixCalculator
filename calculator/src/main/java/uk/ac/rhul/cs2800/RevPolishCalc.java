@@ -13,8 +13,10 @@ public class RevPolishCalc implements Calculator {
    *
    * @return the result of the arithmetic operation determined from the Reverse Polish String
    *         expression
+   * @throws InvalidExpression if the provided expression cannot be computed due to incorrect
+   *         formatting
    */
-  public float evaluate(String what) {
+  public float evaluate(String what) throws InvalidExpression {
     // checks if string is empty, if so returns 0
     if (what == "") {
       return (float) 0;
@@ -33,6 +35,10 @@ public class RevPolishCalc implements Calculator {
           if (Character.isDigit(temp.charAt(0))) {
             numStack.push(Float.parseFloat(splitStr[curr]));
           } else {
+            // checks if numStack is empty just in case an incorrect number of symbols is provided
+            if (numStack.isEmpty()) {
+              throw new InvalidExpression("Invalid expression provided.");
+            }
             float first = numStack.pop();
             float second = numStack.pop();
             // checks which operator is upcoming and utilises this to determine which calculation is
@@ -58,6 +64,9 @@ public class RevPolishCalc implements Calculator {
                 return result;
             }
           }
+        }
+        if (numStack.getSize() > 1) {
+          throw new InvalidExpression("Invalid expression provided.");
         }
         return result;
       }
