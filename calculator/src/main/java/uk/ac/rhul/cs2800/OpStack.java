@@ -56,4 +56,13 @@ public class OpStack {
       return false;
     }
   }
+
+  public String getOperator(String type) {
+    switch (type) {
+      case "Plus":
+        return "+";
+      default:
+        return null;
+    }
+  }
 }

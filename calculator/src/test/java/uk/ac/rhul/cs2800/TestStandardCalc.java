@@ -30,5 +30,10 @@ class TestStandardCalc {
   void testEmpty() throws InvalidExpression {
     assertEquals(sc.evaluate(" "), 0.0, "Evaluating nothing should return 0");
   }
-
+  
+  @Test
+  // Test 4
+  void testSimple() throws InvalidExpression {
+    assertEquals(sc.evaluate("2 + 3"), 5.0, "2 + 3 should evaluate to 5");
+  }
 }
