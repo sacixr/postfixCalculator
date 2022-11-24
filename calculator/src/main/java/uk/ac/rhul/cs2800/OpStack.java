@@ -61,6 +61,12 @@ public class OpStack {
     switch (type) {
       case "Plus":
         return "+";
+      case "Minus":
+        return "-";
+      case "Times":
+        return "*";
+      case "Divide":
+        return "/";
       default:
         return null;
     }

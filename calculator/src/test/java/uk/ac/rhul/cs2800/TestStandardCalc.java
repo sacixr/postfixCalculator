@@ -36,4 +36,18 @@ class TestStandardCalc {
   void testSimple() throws InvalidExpression {
     assertEquals(sc.evaluate("2 + 3"), 5.0, "2 + 3 should evaluate to 5");
   }
+  
+  @Test
+  // Test 5
+  void testSimpleExpressions() throws InvalidExpression {
+    assertEquals(sc.evaluate("10 - 3"), 7.0, "10 - 3 should evaluate to 7");
+    assertEquals(sc.evaluate("10 * 4"), 40.0, "10 * 4 should evaluate to 40");
+    assertEquals(sc.evaluate("10 / 2"), 5.0, "10 / 2 should evaluate to 5");
+  }
+  
+  @Test
+  // Test 6
+  void testNegatives() throws InvalidExpression {
+    assertEquals(sc.evaluate("3 - 10"), -7.0, "3 - 10 should evaluate to -7");
+  }
 }
