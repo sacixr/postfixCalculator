@@ -1,5 +1,12 @@
 package uk.ac.rhul.cs2800;
 
+/**
+ * Evaluates a Standard String expression. Implements the Calculator interface and contains
+ * the necessary evaluates method.
+ *
+ * @author ZKAC176
+ *
+ */
 public class StandardCalc implements Calculator {
 
   @Override
