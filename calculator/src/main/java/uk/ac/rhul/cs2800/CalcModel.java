@@ -5,7 +5,10 @@ public class CalcModel {
     if (infix == false) {
       RevPolishCalc rp = new RevPolishCalc();
       return rp.evaluate(expr);
+    } else if (infix == true) {
+      StandardCalc sc = new StandardCalc();
+      return sc.evaluate(expr);
     }
-    return (float) 0;
+    return 0;
   }
 }

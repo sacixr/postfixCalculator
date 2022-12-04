@@ -28,4 +28,16 @@ class TestCalcModel {
     assertEquals(model.evaluate("2 5 +", false), 7.0, "2 + 5 should evaluate to 7.0");
     assertEquals(model.evaluate("2 2 + 5 *", false), 20.0, "2 + 2 * 5 should evaluate to 20.0");
   }
+  
+  @Test
+  // Test 3
+  void testStandardCalc() throws InvalidExpression {
+    assertEquals(model.evaluate("2 + 5", true), 7.0, "2 + 5 should evaluate to 7.0");
+  }
+  
+  @Test
+  // Test 4
+  void testCompelxStandarc() throws InvalidExpression {
+    assertEquals(model.evaluate("2 + 6 - 5", true), 3.0, "2 + 6 - 5 should evaluate to 3.0");
+  }
 }
