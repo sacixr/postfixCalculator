@@ -56,4 +56,25 @@ public class OpStack {
       return false;
     }
   }
+  
+  /**
+   * Retrieves the associated operator from a string.
+   *
+   * @param type possible string operator fed by method
+   * @return associated operator as a string symbol
+   */
+  public String getOperator(String type) {
+    switch (type) {
+      case "Plus":
+        return "+";
+      case "Minus":
+        return "-";
+      case "Times":
+        return "*";
+      case "Divide":
+        return "/";
+      default:
+        return null;
+    }
+  }
 }

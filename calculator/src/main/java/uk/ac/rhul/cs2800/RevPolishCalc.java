@@ -1,5 +1,7 @@
 package uk.ac.rhul.cs2800;
 
+import org.apache.commons.lang3.math.NumberUtils;
+
 /**
  * Evaluates a Reverse Polish String expression. Implements the Calculator interface and contains
  * the necessary evaluates method.
@@ -32,7 +34,7 @@ public class RevPolishCalc implements Calculator {
         // pushes numbers onto the stack
         for (int curr = 0; curr != splitStr.length; curr++) {
           String temp = splitStr[curr];
-          if (Character.isDigit(temp.charAt(0))) {
+          if (NumberUtils.isCreatable(temp)) {
             numStack.push(Float.parseFloat(splitStr[curr]));
           } else {
             // checks if numStack is empty just in case an incorrect number of symbols is provided
