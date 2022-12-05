@@ -86,4 +86,10 @@ class TestRevPolish {
     assertThrows(InvalidExpression.class, () -> rp.evaluate("+ + +"),
         "Invalid expression should throw exception.");
   }
+  
+  @Test
+  // Test 11
+  void testNegative() throws InvalidExpression {
+    assertEquals(rp.evaluate("-3 -5 +"), -8.0, "-3 + -5 should evaluate to -8.0");
+  }
 }
