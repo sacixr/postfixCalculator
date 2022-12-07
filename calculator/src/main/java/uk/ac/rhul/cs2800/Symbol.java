@@ -9,40 +9,46 @@ public enum Symbol {
   /**
    * Left Bracket symbol.
    */
-  LEFTBRACKET("Left Bracket"),
+  LEFTBRACKET("Left Bracket", 0),
   /**
    * Right Bracket symbol.
    */
-  RIGHTBRACKET("Right Bracket"),
-  /**
-   * Times symbol.
-   */
-  TIMES("Times"),
+  RIGHTBRACKET("Right Bracket", 0),
   /**
    * Divide symbol.
    */
-  DIVIDE("Divide"),
+  DIVIDE("Divide", 1),
   /**
-   * Plus symbol.
+   * Times symbol.
    */
-  PLUS("Plus"),
+  TIMES("Times", 1),
+  /**
+   * Divide symbol.
+   */
+  PLUS("Plus", 2),
   /**
    * Minus symbol.
    */
-  MINUS("Minus"),
+  MINUS("Minus", 2),
   /**
    * Invalid symbol.
    */
-  INVALID("Invalid");
+  INVALID("Invalid", 3);
 
   private String string;
+  private int precedence;
 
-  private Symbol(String value) {
+  private Symbol(String value, int num) {
     string = value;
+    precedence = num;
   }
 
   @Override
   public String toString() {
     return string;
+  }
+  
+  public int getPrecedence() {
+    return precedence;
   }
 }
