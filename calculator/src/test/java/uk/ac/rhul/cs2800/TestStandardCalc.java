@@ -1,7 +1,7 @@
 package uk.ac.rhul.cs2800;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -71,5 +71,14 @@ class TestStandardCalc {
   void testBrackets() throws InvalidExpression {
     assertEquals(sc.evaluate("( 3 + 2 )"), 5.0, "(3 + 2) should evaluate to 5");
     assertEquals(sc.evaluate("( 5 * ( 6 + 7 ) ) - 2"), 63.0, "(5*(6+7))-2 should evalaute to 63");
+  }
+  
+  @Test
+  // Test 10
+  void testInvalid() throws InvalidExpression {
+    assertThrows(InvalidExpression.class, () -> sc.evaluate("+ + +"),
+        "Invalid expression should throw exception.");
+    assertThrows(InvalidExpression.class, () -> sc.evaluate("+ 3 3 4 8"),
+        "Invalid expression should throw exception.");
   }
 }
