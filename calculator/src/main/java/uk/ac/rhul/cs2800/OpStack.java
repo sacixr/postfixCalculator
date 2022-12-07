@@ -56,7 +56,7 @@ public class OpStack {
       return false;
     }
   }
-  
+
   /**
    * Retrieves the associated operator from a string.
    *
@@ -73,8 +73,26 @@ public class OpStack {
         return "*";
       case "Divide":
         return "/";
+      case "/":
+        return "DIVIDE";
+      case "*":
+        return "TIMES";
+      case "+":
+        return "PLUS";
+      case "-":
+        return "MINUS";
       default:
-        return null;
+        return "null";
     }
+  }
+
+  /**
+   * Returns the top value from the stack.
+   *
+   * @return the element at the top of the stack
+   */
+  public Symbol top() {
+    Symbol returnVal = Symbol.valueOf(opStack.top().toString().toUpperCase());
+    return returnVal;
   }
 }
