@@ -43,7 +43,8 @@ public class StandardCalc implements Calculator {
       // if its a number, instantly insert directly to string, utilises NumberUtils
       if (NumberUtils.isCreatable(currString)) {
         strResult = strResult + currString + " ";
-      } else {
+      } else if (currString.equals("+") || currString.equals("-") || currString.equals("/")
+          || currString.equals("*")) {
         // store the current and top precedence of the values
         int currPrec = getImport(currString);
         int topPrec = 0;
@@ -53,6 +54,7 @@ public class StandardCalc implements Calculator {
           values.push(entry);
         } else {
           // get top precedence
+          
           topPrec = values.top().getPrecedence();
           // check which operator is to be pushed
           switch (currString) {
@@ -76,12 +78,21 @@ public class StandardCalc implements Calculator {
               break;
           }
         }
+      } else if (currString.equals("(")) {
+        values.push(Symbol.LEFTBRACKET);
+      } else if (currString.equals(")")) {        
+        while (!(values.top().equals(Symbol.LEFTBRACKET))) {
+          operator = values.getOperator(values.pop().toString());
+          strResult = strResult + operator + " ";
+        }
+        values.pop();
       }
     }
     while (!(values.isEmpty())) {
       operator = values.getOperator(values.pop().toString());
       strResult = strResult + operator + " ";
     }
+    System.out.println(strResult);
     return (float) rpCalc.evaluate(strResult);
   }
 
@@ -103,9 +114,11 @@ public class StandardCalc implements Calculator {
 
   // checks if the operators have to be swapped due to precedence
   private void swapOp(int current, int top) {
-    if (current >= top) {
-      operator = values.getOperator(values.pop().toString());
-      strResult = strResult + operator + " ";
+    if (current != 0 && top != 0) {
+      if (current >= top) {
+        operator = values.getOperator(values.pop().toString());
+        strResult = strResult + operator + " ";
+      }
     }
   }
 }

@@ -9,11 +9,11 @@ public enum Symbol {
   /**
    * Left Bracket symbol.
    */
-  LEFTBRACKET("Left Bracket", 0),
+  LEFTBRACKET("LeftBracket", 0),
   /**
    * Right Bracket symbol.
    */
-  RIGHTBRACKET("Right Bracket", 0),
+  RIGHTBRACKET("RightBracket", 0),
   /**
    * Divide symbol.
    */

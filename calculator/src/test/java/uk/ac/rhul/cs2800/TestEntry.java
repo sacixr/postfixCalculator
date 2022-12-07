@@ -37,14 +37,14 @@ class TestEntry {
   // Test 11
   // Override toString method in Symbol class.
   void createSymbolTest() {
-    assertEquals(newSymbol.toString(), "Left Bracket",
+    assertEquals(newSymbol.toString(), "LeftBracket",
         "Calling toString on LEFTBRACKET should validate.");
   }
 
   @Test
   // Test 12
   void testGetSymbol() throws BadTypeException {
-    assertEquals(newSymbolEntry.getSymbol().toString(), "Left Bracket",
+    assertEquals(newSymbolEntry.getSymbol().toString(), "LeftBracket",
         "Calling getSymbol on newSymbolEntry should return LEFTBRACKET.");
   }
 

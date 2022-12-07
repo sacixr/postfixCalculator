@@ -65,4 +65,11 @@ class TestStandardCalc {
   void testRealNegatives() throws InvalidExpression {
     assertEquals(sc.evaluate("-10 * 2"), -20.0, "negative");
   }
+  
+  @Test
+  // Test 9
+  void testBrackets() throws InvalidExpression {
+    assertEquals(sc.evaluate("( 3 + 2 )"), 5.0, "(3 + 2) should evaluate to 5");
+    assertEquals(sc.evaluate("( 5 * ( 6 + 7 ) ) - 2"), 63.0, "(5*(6+7))-2 should evalaute to 63");
+  }
 }
