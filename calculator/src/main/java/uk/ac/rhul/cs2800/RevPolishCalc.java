@@ -10,6 +10,25 @@ import org.apache.commons.lang3.math.NumberUtils;
  *
  */
 public class RevPolishCalc implements Calculator {
+  private NumStack numStack;
+  private String[] splitStr;
+  private String temp;
+  private float first;
+  private float second;
+  private float result;
+
+  /**
+   * Constructs an empty RevPolishCalc object.
+   */
+  public RevPolishCalc() {
+    numStack = new NumStack();
+    splitStr = new String[30];
+    temp = "";
+    first = 0;
+    second = 0;
+    result = 0;
+  }
+
   /**
    * Evaluates a Reverse Polish String expression and returns the result of the calculation.
    *
@@ -24,16 +43,16 @@ public class RevPolishCalc implements Calculator {
       return (float) 0;
     } else {
       // if string not empty splits into string array so that each character is stored in one space
-      String[] splitStr = what.split(" ");
+      splitStr = what.split(" ");
       // if string is only one value, returns this one value
       if (splitStr.length == 1) {
         return (float) Float.parseFloat(splitStr[0]);
       } else {
-        float result = 0;
-        NumStack numStack = new NumStack();
+        result = 0;
+        numStack = new NumStack();
         // pushes numbers onto the stack
         for (int curr = 0; curr != splitStr.length; curr++) {
-          String temp = splitStr[curr];
+          temp = splitStr[curr];
           if (NumberUtils.isCreatable(temp)) {
             numStack.push(Float.parseFloat(splitStr[curr]));
           } else {
@@ -41,8 +60,8 @@ public class RevPolishCalc implements Calculator {
             if (numStack.isEmpty()) {
               throw new InvalidExpression("Invalid expression provided.");
             }
-            float first = numStack.pop();
-            float second = numStack.pop();
+            first = numStack.pop();
+            second = numStack.pop();
             // checks which operator is upcoming and utilises this to determine which calculation is
             // being done
             switch (splitStr[curr]) {

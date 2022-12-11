@@ -12,8 +12,8 @@ import org.apache.commons.lang3.math.NumberUtils;
 public class StandardCalc implements Calculator {
   private OpStack values;
   private RevPolishCalc rpCalc;
-  String operator = "";
-  String strResult = "";
+  private String operator = "";
+  private String strResult = "";
 
   /**
    * Constructs an empty StandardCalc object.
@@ -54,7 +54,6 @@ public class StandardCalc implements Calculator {
           values.push(entry);
         } else {
           // get top precedence
-          
           topPrec = values.top().getPrecedence();
           // check which operator is to be pushed
           switch (currString) {
@@ -92,7 +91,6 @@ public class StandardCalc implements Calculator {
       operator = values.getOperator(values.pop().toString());
       strResult = strResult + operator + " ";
     }
-    System.out.println(strResult);
     return (float) rpCalc.evaluate(strResult);
   }
 
