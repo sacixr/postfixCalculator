@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Ability to store float returns in String.
+- AsciiView class which allows the user to interact with the calculator.
 
 ## [0.0.1] - 2022-12-07
 
