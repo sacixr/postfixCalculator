@@ -52,7 +52,7 @@ public class CalcModel {
    * @throws InvalidExpression if the value provided to use to store the float is of incorrect type
    */
   public void saveTo(float result, String string) throws InvalidExpression {
-    if (!NumberUtils.isCreatable(string)) {
+    if (!NumberUtils.isCreatable(string) && !(map.containsKey(string))) {
       map.put(string, result);
     } else {
       throw new InvalidExpression("Cannot store values under numbers.");
