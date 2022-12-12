@@ -20,7 +20,6 @@ class TestEntry {
     newSymbol = Symbol.LEFTBRACKET;
     newNumberEntry = new Entry((float) 5.525);
     newSymbolEntry = new Entry(newSymbol);
-    newStringEntry = new Entry("Filler");
     sameNumberEntry = new Entry((float) 5.525);
   }
 
@@ -86,16 +85,8 @@ class TestEntry {
     assertEquals(newStringEntry.getString(), "Filler",
         "Creating an entry with the String: Filler, should validate.");
   }
-
-  @Test
-  // Test 18
-  // Originally failed as had hard-coded value. Now update str variable in Entry(String string)
-  // constructor. Added throws BadTypeException after Test 21.
-  void createDiffString() throws BadTypeException {
-    Entry changedStringEntry = new Entry("Change");
-    assertEquals(changedStringEntry.getString(), "Change",
-        "Creating an entry with the String: Changed, should validate");
-  }
+  
+  // Test 18 removed due to dead code.
 
   @Test
   // Test 19
