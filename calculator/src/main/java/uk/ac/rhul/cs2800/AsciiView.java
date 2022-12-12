@@ -14,7 +14,6 @@ public class AsciiView {
   private static boolean infix;
   private static boolean postfix;
   private static Scanner scanner;
-  private static String userInput;
 
   /**
    * Constructs AsciiView object.
@@ -34,9 +33,9 @@ public class AsciiView {
   public void menu() {
     while (running == true) {
       System.out.println("--- Main Menu --- \nPlease select an option."
-          + "\n1. Infix (Standard Notation) \n2. Postfix (Reverse Polish Notation)"
-          + "\n3. Retrieve saved value\n4. Q to exit the program");
-      userInput = scanner.nextLine();
+          + "\n1. Infix (Standard Notation) \n2. Postfix (Reverse Polish Notation"
+          + "\n3. Q to exit the program");
+      String userInput = scanner.nextLine();
       // infix
       if (userInput.equals("1")) {
         infix = true;
@@ -51,10 +50,9 @@ public class AsciiView {
             break;
           }
           try {
-            float result = model.evaluate(userInput, true);
-            save(result);
+            System.out.println("Result: " + model.evaluate(userInput, true));
           } catch (Exception e) {
-            System.out.println("Invalid expression provided or string taken. Please try again.");
+            System.out.println("Invalid expression provided. Please try again.");
           }
         }
         // postfix
@@ -71,36 +69,15 @@ public class AsciiView {
             break;
           }
           try {
-            float result = model.evaluate(userInput, false);
-            save(result);
+            System.out.println("Result: " + model.evaluate(userInput, false));
           } catch (Exception e) {
-            System.out.println("Invalid expression provided or string taken. Please try again.");
+            System.out.println("Invalid expression provided. Please try again.");
           }
         }
       } else if (userInput.equals("Q")) {
         System.out.println("Exited.");
         running = false;
-        System.exit(0);
-      } else if (userInput.equals("3")) {
-        System.out.println("Please provide the name of the value you would like to retrieve.");
-        userInput = scanner.nextLine();
-        System.out.println(userInput + " = " + model.getVal(userInput));
       }
-    }
-  }
-
-  // allows the user to save a result to a specific string
-  private void save(float result) throws InvalidExpression {
-    System.out.println("Result: " + result + "\nWould you like to save this result? Y/N");
-    userInput = scanner.nextLine();
-    if (userInput.equals("Y")) {
-      System.out.println("Please provide a character or string to save this under.");
-      userInput = scanner.nextLine();
-      model.saveTo(result, userInput);
-      System.out.println("Result saved to: " + userInput
-          + "\nPlease provide another equation or press Q to exit.");
-    } else if (!(userInput.equals("N"))) {
-      System.out.println("Incorrect answer. Please write equation again.");
     }
   }
 }
