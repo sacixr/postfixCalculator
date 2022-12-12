@@ -38,16 +38,6 @@ public class Entry {
   }
 
   /**
-   * Constructs an Entry object with the specified String. Sets the type variable to String.
-   *
-   * @param string the string which is to be stored
-   */
-  public Entry(String string) {
-    str = string;
-    type = Type.STRING;
-  }
-
-  /**
    * Fetches the float associated with Entry object. Throws a BadTypeException if the method is
    * called on an Entry object that is not of type Number.
    *
