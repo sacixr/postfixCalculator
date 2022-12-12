@@ -2,21 +2,39 @@ package uk.ac.rhul.cs2800;
 
 import java.util.Scanner;
 
+/**
+ * Contains the menu based ASCII/text view.
+ *
+ * @author ZKAC176
+ *
+ */
 public class AsciiView {
-  String expression;
-  String answer;
-  
-  public static void menu() {
-    RevPolishCalc rp = new RevPolishCalc();
-    StandardCalc sc = new StandardCalc();
-    boolean running = true;
-    boolean infix = false;
-    boolean postfix = false;
-    Scanner scanner = new Scanner(System.in);
-    
+  private static CalcModel model;
+  private static boolean running;
+  private static boolean infix;
+  private static boolean postfix;
+  private static Scanner scanner;
+
+  /**
+   * Constructs AsciiView object.
+   */
+  public AsciiView() {
+    model = new CalcModel();
+    running = true;
+    infix = false;
+    postfix = false;
+    scanner = new Scanner(System.in);
+  }
+
+  /**
+   * Contains the main menu of the calculator. Presented as a simple text-based menu expecting user
+   * input. Loops until the user inputs a certain character.
+   */
+  public void menu() {
     while (running == true) {
       System.out.println("--- Main Menu --- \nPlease select an option."
-          + "\n1. Infix (Standard Notation) \n2. Postfix (Reverse Polish Notation");
+          + "\n1. Infix (Standard Notation) \n2. Postfix (Reverse Polish Notation"
+          + "\n3. Q to exit the program");
       String userInput = scanner.nextLine();
       // infix
       if (userInput.equals("1")) {
@@ -32,7 +50,7 @@ public class AsciiView {
             break;
           }
           try {
-            System.out.println("Result: " + sc.evaluate(userInput));
+            System.out.println("Result: " + model.evaluate(userInput, true));
           } catch (Exception e) {
             System.out.println("Invalid expression provided. Please try again.");
           }
@@ -51,18 +69,15 @@ public class AsciiView {
             break;
           }
           try {
-            System.out.println("Result: " + rp.evaluate(userInput));
+            System.out.println("Result: " + model.evaluate(userInput, false));
           } catch (Exception e) {
             System.out.println("Invalid expression provided. Please try again.");
           }
         }
       } else if (userInput.equals("Q")) {
+        System.out.println("Exited.");
         running = false;
       }
     }
-  }
-
-  public static void main(String[] args) {
-    menu();
   }
 }
