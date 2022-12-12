@@ -89,6 +89,7 @@ public class AsciiView {
     }
   }
 
+  // allows the user to save a result to a specific string
   private void save(float result) throws InvalidExpression {
     System.out.println("Result: " + result + "\nWould you like to save this result? Y/N");
     userInput = scanner.nextLine();
