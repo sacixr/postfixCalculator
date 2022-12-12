@@ -17,11 +17,7 @@ public enum Type {
   /**
    * String type.
    */
-  STRING("String"),
-  /**
-   * Invalid type.
-   */
-  INVALID("Invalid");
+  STRING("String");
 
   private String string;
 
