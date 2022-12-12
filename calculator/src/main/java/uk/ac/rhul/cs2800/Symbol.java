@@ -29,11 +29,7 @@ public enum Symbol {
   /**
    * Minus symbol.
    */
-  MINUS("Minus", 2),
-  /**
-   * Invalid symbol.
-   */
-  INVALID("Invalid", 3);
+  MINUS("Minus", 2);
 
   private String string;
   private int precedence;
